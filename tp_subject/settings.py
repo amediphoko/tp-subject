@@ -16,6 +16,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 APP_NAME = 'tp_subject'
+SITE_ID = 40
+REVIEWER_SITE_ID = 0
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,6 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_crypto_fields.apps.AppConfig',
+    'django_revision.apps.AppConfig',
+    'edc_base.apps.AppConfig',
+    'tp_screening.apps.AppConfig',
+    'tp_subject.apps.EdcFacilityAppConfig',
+    'tp_subject.apps.EdcLabAppConfig',
+    'tp_subject.apps.EdcLabelAppConfig',
+    'tp_subject.apps.EdcMetadataAppConfig',
+    'tp_subject.apps.EdcIdentifierAppConfig',
+    'tp_subject.apps.EdcProtocolAppConfig',
+    'tp_subject.apps.EdcAppointmentAppConfig',
+    'tp_subject.apps.EdcVisitTrackingAppConfig',
     'tp_subject.apps.AppConfig'
 ]
 
