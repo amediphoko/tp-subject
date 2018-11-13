@@ -1,1 +1,2 @@
 from .education_model_mixin import EducationModelMixin
+from .crf_model_mixin import CrfModelMixin

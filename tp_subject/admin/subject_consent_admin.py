@@ -4,7 +4,7 @@ from ..forms import SubjectConsentForm
 from ..models import SubjectConsent
 
 
-class SubjectConsent(admin.ModelAdmin):
+class SubjectConsentAdmin(admin.ModelAdmin):
 
     form = SubjectConsentForm
 

@@ -1,3 +1,7 @@
+from edc_constants.constants import NOT_APPLICABLE
+from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
+
+
 NA = 'NOT ANSWERING'
 OT = 'OTHER'
 
@@ -60,3 +64,29 @@ ID_TYPE = (
     ('hospital_no', 'Hospital number'),
     ('country_id_rcpt', 'Country ID receipt'),
     (OT, 'Other'),)
+
+INFO_SOURCE = (
+    ('hospital_notes', 'Hospital notes'),
+    ('outpatient_cards', 'Outpatient cards'),
+    ('patient', 'Patient'),
+    ('collateral_history',
+     'Collateral History from relative/guardian'),
+    (OT, 'Other'),
+)
+
+VISIT_UNSCHEDULED_REASON = (
+    ('patient_unwell_outpatient', 'Patient unwell (outpatient)'),
+    ('recurrence_symptoms', 'Recurrence of symptoms'),
+    ('raised_icp_management', 'Raised ICP management'),
+    ('art_initiation', 'ART initiation'),
+    ('patient_hospitalised', 'Patient hospitalised'),
+    (OT, 'Other'),
+    (NOT_APPLICABLE, 'Not applicable'),
+)
+
+
+VISIT_REASON = (
+    (SCHEDULED, 'Scheduled'),
+    (UNSCHEDULED, 'Not scheduled'),
+    (MISSED_VISIT, 'Missed'),
+)

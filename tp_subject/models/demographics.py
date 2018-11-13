@@ -1,8 +1,9 @@
 from django.db import models
 from ..custom_choices import MARITAL_STATUS_CHOICES, LIVING_ARRANGEMENTS
+from .model_mixins import CrfModelMixin
 
 
-class Demographics():
+class Demographics(CrfModelMixin):
     '''Demographics Questionnaire'''
 
     marital_status = models.CharField(
@@ -33,3 +34,8 @@ class Demographics():
         null=True,
         blank=True
     )
+
+    class Meta(CrfModelMixin.Meta):
+        app_label = 'tp_subject'
+        verbose_name = 'Demographics: Trainee Project'
+        verbose_name_plural = 'Demographics: Trainee Project'
