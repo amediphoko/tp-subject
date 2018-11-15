@@ -2,8 +2,10 @@ from django.contrib import admin
 from edc_model_admin import audit_fieldset_tuple
 from ..forms import SubjectConsentForm
 from ..models import SubjectConsent
+from ..admin_site import tp_subject_admin
 
 
+@admin.register(SubjectConsent, site=tp_subject_admin)
 class SubjectConsentAdmin(admin.ModelAdmin):
 
     form = SubjectConsentForm
@@ -49,12 +51,10 @@ class SubjectConsentAdmin(admin.ModelAdmin):
         'consent_reviewed': admin.VERTICAL,
         'consent_signature': admin.VERTICAL,
         'gender': admin.VERTICAL,
-        'id_date_estimated': admin.VERTICAL,
+        'is_dob_estimated': admin.VERTICAL,
         'is_incarcerated': admin.VERTICAL,
         'is_literate': admin.VERTICAL,
         'language': admin.VERTICAL,
         'may_store_genetic_samples': admin.VERTICAL,
         'may_store_samples': admin.VERTICAL,
         'study_questions': admin.VERTICAL, }
-
-    admin.site.register(SubjectConsent)
