@@ -19,6 +19,7 @@ APP_NAME = 'tp_subject'
 SITE_ID = 40
 REVIEWER_SITE_ID = 0
 
+ETC_DIR = os.path.join(BASE_DIR, 'etc')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -45,15 +46,20 @@ INSTALLED_APPS = [
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
     'edc_base.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
+    'edc_fieldsets.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
+    'edc_registration.apps.AppConfig',
     'tp_screening.apps.AppConfig',
     'tp_subject.apps.EdcFacilityAppConfig',
     'tp_subject.apps.EdcLabAppConfig',
-    'tp_subject.apps.EdcLabelAppConfig',
     'tp_subject.apps.EdcMetadataAppConfig',
     'tp_subject.apps.EdcIdentifierAppConfig',
     'tp_subject.apps.EdcProtocolAppConfig',
     'tp_subject.apps.EdcAppointmentAppConfig',
-    'tp_subject.apps.EdcVisitTrackingAppConfig',
+    'tp_subject.apps.EdcVisitingTrackingAppConfig',
     'tp_subject.apps.AppConfig'
 ]
 
@@ -136,3 +142,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+COUNTRY = 'Botswana'
+
+DASHBOARD_URL_NAMES = {
+    'subject_listboard_url': 'tp_dashboard:subject_listboard_url',
+    'screening_listboard_url': 'tp_dashboard:screening_listboard_url',
+    'subject_dashboard_url': 'tp_dashboard:subject_dashboard_url',
+}

@@ -56,7 +56,7 @@ class SubjectConsent(ConsentModelMixin, SiteModelMixin, UpdatesOrCreatesRegistra
     def get_subject_screening(self):
         particpant_screening_cls = django_apps.get_model(
             self.participant_screening_model)
-        return particpant_screening_cls.get(screening_identifier=self.screening_identifier)
+        return particpant_screening_cls.objects.get(screening_identifier=self.screening_identifier)
 
     @property
     def registration_unique_field(self):

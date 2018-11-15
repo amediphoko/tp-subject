@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.dispatch.dispatcher import receiver
 from django.db.models.signals import post_save, post_delete
 from edc_visit_schedule.site_visit_schedules import site_visit_schedules
-from tp_screening.models import SubjectScreening
+from tp_screening.models import ParticipantScreening
 from .subject_consent import SubjectConsent
 from .subject_visit import SubjectVisit
 
@@ -18,7 +18,7 @@ def subject_consent_on_post_save(sender, instance, raw, created, **kwargs):
                 subject_identifier=instance.subject_identifier)
         else:
             # update identifier and consented
-            subject_screening = SubjectScreening.objects.get(
+            subject_screening = ParticipantScreening.objects.get(
                 screening_identifier=instance.screening_identifier)
             subject_screening.subject_identifer = instance.subject_identifier
             subject_screening.consented = True
@@ -26,11 +26,11 @@ def subject_consent_on_post_save(sender, instance, raw, created, **kwargs):
                 update_fields=['subject_identifier', 'consented'])
 
             # put subject on schedule
-            _, schedule = site_visit_schedules.get_by_onschedule_model(
-                'tp_subject.onschedule')
-            schedule.put_on_schedule(
-                subject_identifier=instance.subject_identifier,
-                onschedule_datetime=instance.consent_datetime)
+#             _, schedule = site_visit_schedules.get_by_onschedule_model(
+#                 'tp_subject.onschedule')
+#             schedule.put_on_schedule(
+#                 subject_identifier=instance.subject_identifier,
+#                 onschedule_datetime=instance.consent_datetime)
 
             # create or delete action for re-consent
 
@@ -51,7 +51,7 @@ def subject_consent_on_post_delete(sender, instance, using, **kwargs):
         offschedule_datetime=instance.consent_datetime)
 
     # update subject screening
-    subject_screening = SubjectScreening.objects.get(
+    subject_screening = ParticipantScreening.objects.get(
         screening_identifier=instance.screening_identifier)
     subject_screening.consented = False
     subject_screening.subject_identifier = subject_screening.subject_screening_as_pk

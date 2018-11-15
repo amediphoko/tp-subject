@@ -6,13 +6,11 @@ from ..models import SubjectConsent
 from ..custom_choices import ID_TYPE
 
 
-class SubjectConsentForm(SiteModelFormMixin, FormValidatorMixin, ConsentModelFormMixin, forms.Form):
-
-    form_validator_cls = None  # revisit after doing the validation
+class SubjectConsentForm(
+        SiteModelFormMixin, FormValidatorMixin, ConsentModelFormMixin, forms.ModelForm):
 
     screening_identifier = forms.CharField(
-        label='Screening Identifier',
-        widget=forms.TextInput(attrs={'readonly', 'readonly'}))
+        label='Screening Identifier')
 
     identity_type = forms.CharField(
         label='What type of identity number is provided by subject?',

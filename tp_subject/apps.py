@@ -22,7 +22,6 @@ if settings.APP_NAME == 'tp_subject':
     from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
     from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
     from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
-    from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
     from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
     from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
     from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
@@ -49,10 +48,6 @@ if settings.APP_NAME == 'tp_subject':
                                  slots=[100, 100, 100, 100, 100, 100, 100]),
             '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                                  slots=[100, 100, 100, 100, 100])}
-
-    class EdcLabelAppConfig(BaseEdcLabelAppConfig):
-        template_folder = os.path.join(
-            settings.STATIC_ROOT, 'trainee-project', 'label_templates')
 
     class EdcLabAppConfig(BaseEdcLabAppConfig):
         base_template_name = 'trainee_project/base.html'
