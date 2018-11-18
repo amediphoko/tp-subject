@@ -19,12 +19,12 @@ class DemographicsFormValidator(FormValidator):
             subject_consent = self.subject_consent_model_cls.objects.get(
                 subject_identifier=cleaned_data.get('subject_visit').appointment.subject_identifier)
 
-            fields_applicable = {FEMALE: 'number_of_spouses_f',
-                                 MALE: 'number_of_spouses_m'}
-            condition = (cleaned_data.get('marital_status') == 'Married')
-            self.applicable_if_true(
-                condition=condition,
-                field_applicable=fields_applicable.get(subject_consent.gender))
-
         except ObjectDoesNotExist:
             raise ValidationError("Subject Consent Form not completed.")
+
+        fields_applicable = {FEMALE: 'number_of_spouses_f',
+                             MALE: 'number_of_spouses_m'}
+        condition = (cleaned_data.get('marital_status') == 'Married')
+        self.applicable_if_true(
+            condition=condition,
+            field_applicable=fields_applicable.get(subject_consent.gender))
