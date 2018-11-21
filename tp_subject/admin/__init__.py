@@ -1,1 +1,2 @@
 from .subject_consent_admin import SubjectConsentAdmin
+from .community_engagement_admin import CommunityEngagementAdmin

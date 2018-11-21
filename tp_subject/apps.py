@@ -1,11 +1,13 @@
 from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 
+from .admin_site import tp_subject_admin
+
 
 class AppConfig(DjangoAppConfig):
     name = 'tp_subject'
     verbose_name = 'Trainee Project Subject CRFs'
-    admin_site_name = None  # edit after creating admin site
+    admin_site_name = tp_subject_admin
 
     def ready(self):
         from .models.signals import subject_consent_on_post_save

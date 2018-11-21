@@ -1,1 +1,4 @@
+from tp_subject.forms.community_engagement_form import CommunityEngagementForm
+from .demographics_form import DemographicsForm
+from .education_form import EducationForm
 from .subject_consent_form import SubjectConsentForm

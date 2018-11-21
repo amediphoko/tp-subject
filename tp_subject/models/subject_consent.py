@@ -63,6 +63,8 @@ class SubjectConsent(ConsentModelMixin, SiteModelMixin, UpdatesOrCreatesRegistra
         return 'subject_identifier'
 
     class Meta(ConsentModelMixin.Meta):
+        app_label = 'tp_subject'
+        verbose_name = 'Subject Consent: Trainee Project'
         unique_together = (
             ('subject_identifier', 'version'),
             ('subject_identifier', 'screening_identifier'),
