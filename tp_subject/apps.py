@@ -12,7 +12,7 @@ class AppConfig(DjangoAppConfig):
 
 
 if settings.APP_NAME == 'tp_subject':
-    import os
+
     from datetime import datetime
     from dateutil.relativedelta import (MO, TU, WE, TH, FR, SA, SU)
     from dateutil.tz.tz import gettz

@@ -1,6 +1,7 @@
-from .form_mixins import SubjectModelFormMixin
+from tp_subject_validators.form_validators import CommunityEngagementFormValidator
+
 from ..models import CommunityEngagement
-from ..form_validators import CommunityEngagementFormValidator
+from .form_mixins import SubjectModelFormMixin
 
 
 class CommunityEngagementForm(SubjectModelFormMixin):

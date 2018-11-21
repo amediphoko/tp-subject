@@ -39,3 +39,4 @@ git+https://github.com/botswana-harvard/getresults-identifier.git@develop#egg=ge
 git+https://github.com/erikvw/django-crypto-fields.git@develop#egg=django_crypto_fields
 git+https://github.com/erikvw/django-revision.git@develop#egg=django_revision
 git+https://github.com/botswana-harvard/edc-reportable.git@develop#egg=edc_reportable
+git+https://github.com/amediphoko/tp-subject-validators.git@develop#egg=tp_subject_validators

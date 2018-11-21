@@ -1,6 +1,7 @@
-from .form_mixins import SubjectModelFormMixin
+from tp_subject_validators.form_validators import DemographicsFormValidator
+
 from ..models import Demographics
-from ..form_validators import DemographicsFormValidator
+from .form_mixins import SubjectModelFormMixin
 
 
 class DemographicsForm(SubjectModelFormMixin):

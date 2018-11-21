@@ -1,13 +1,18 @@
 from django import forms
+from django.utils.safestring import mark_safe
 from edc_form_validators import FormValidatorMixin
 from edc_consent.modelform_mixins import ConsentModelFormMixin
 from edc_base.sites.forms import SiteModelFormMixin
+from tp_subject_validators.form_validators import SubjectConsentFormValidator
+
 from ..models import SubjectConsent
 from ..custom_choices import ID_TYPE
 
 
 class SubjectConsentForm(
         SiteModelFormMixin, FormValidatorMixin, ConsentModelFormMixin, forms.ModelForm):
+
+    form_validator_cls = SubjectConsentFormValidator
 
     screening_identifier = forms.CharField(
         label='Screening Identifier')
@@ -29,6 +34,10 @@ class SubjectConsentForm(
         model = SubjectConsent
         fields = '__all__'
         help_texts = {
+            'guardian_name': mark_safe(
+                'Required only if participant is unconscious or has an abnormal mental '
+                'status.<br>Format is \'LASTNAME, FIRSTNAME\'. All uppercase separated '
+                'by a comma then followed by a space.'),
             'identity': ('Use country ID Number, Passport Number, driver\'s license '
                          'number or country ID receipt number.'),
             'witness_name': ('Required if participant is illitrate. '
