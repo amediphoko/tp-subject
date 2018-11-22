@@ -1,5 +1,6 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
+from setuptools import find_packages
 
 '''open and read the README file'''
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
