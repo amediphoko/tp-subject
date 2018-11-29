@@ -3,10 +3,11 @@ from edc_model_admin import audit_fieldset_tuple, audit_fields
 from ..admin_site import tp_subject_admin
 from ..forms import CommunityEngagementForm
 from ..models import CommunityEngagement
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(CommunityEngagement, site=tp_subject_admin)
-class CommunityEngagementAdmin(admin.ModelAdmin):
+class CommunityEngagementAdmin(CrfModelAdminMixin, admin.ModelAdmin):
 
     form = CommunityEngagementForm
 
@@ -26,6 +27,8 @@ class CommunityEngagementAdmin(admin.ModelAdmin):
         'community_problems': admin.VERTICAL,
         'together_in_solving': admin.VERTICAL
     }
+
+    exclude = ('device_created', 'device_modified',)
 
     def get_readonly_fields(self, request, obj=None):
         return (super().get_readonly_fields(request, obj=obj)

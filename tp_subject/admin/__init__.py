@@ -1,3 +1,4 @@
-from .demographics_admin import DemographicsAdmin
 from .community_engagement_admin import CommunityEngagementAdmin
+from .demographics_admin import DemographicsAdmin
+from .education_admin import EducationAdmin
 from .subject_consent_admin import SubjectConsentAdmin

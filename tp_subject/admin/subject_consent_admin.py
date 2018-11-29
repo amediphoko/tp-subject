@@ -40,7 +40,7 @@ class ModelAdminMixin(ModelAdminNextUrlRedirectMixin, ModelAdminFormAutoNumberMi
 
 
 @admin.register(SubjectConsent, site=tp_subject_admin)
-class SubjectConsentAdmin(admin.ModelAdmin):
+class SubjectConsentAdmin(ModelAdminMixin, admin.ModelAdmin):
 
     form = SubjectConsentForm
 
